@@ -37,3 +37,13 @@ summary(lm(`Change in PCI` ~ `PCI 2008`
            + `Did the PCI start below 60?` * `Did the PCI fall below 60?`
            , data = county_data))
 # PCI falling below 60 does not seem to have triggered a sudden rush of pavement repair.
+
+
+summary(lm(`Change in PCI` ~ `PCI 2008`
+           + `LOST Active between 08-20` 
+           + `Period Active`
+           + `Pop per lane miles`
+           , data = county_data))
+# What the fuck is this
+# What the fuck does this mean
+# What the fuck
