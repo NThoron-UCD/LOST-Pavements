@@ -1,0 +1,29 @@
+library(data.table)
+library(ggplot2)
+library(tidyverse)
+
+county_data <- fread("Data/Pavements & LOSTs - Sheet1.csv")
+summary(county_data)
+
+summary(lm(`PCI 2020` ~ `PCI 2008`, data = county_data))
+summary(lm(`PCI 2020` ~ `LOST Active between 08-20`, data = county_data))
+
+summary(lm(`PCI 2020` ~ `PCI 2008` + `LOST Active between 08-20`, data = county_data))
+
+summary(lm(`PCI 2020` ~ `PCI 2008` + `LOST Active between 08-20` + `Centerline Miles`, data = county_data))
+
+summary(lm(`PCI 2020` ~ `PCI 2008` + `LOST Active between 08-20` + `Centerline Miles` + Population +
+             `Measure expired and replaced?` + `Period Active` + `LOST Rate`, data = county_data))
+
+summary(lm(`PCI 2020` ~ `PCI 2008` + `Period Active`, data = county_data))
+
+
+
+summary(lm(`Change in PCI` ~ `LOST Active between 08-20`, data = county_data))
+
+summary(lm(`Change in PCI` ~ `PCI 2008` + `LOST Active between 08-20`, data = county_data))
+
+summary(lm(`Change in PCI` ~ `PCI 2008` + `LOST Active between 08-20` + Population, data = county_data))
+
+
+summary(lm(`Change in PCI` ~ `PCI 2008` + `Period Active`, data = county_data))
