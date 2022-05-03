@@ -31,3 +31,9 @@ summary(lm(`Change in PCI` ~ `PCI 2008` + `Period Active`, data = county_data))
 
 summary(lm(`Change in PCI` ~ `PCI 2008` + `Period Active` + `LOST Active between 08-20`, data = county_data))
 # I don't know why this works the way it does and I hate it
+
+summary(lm(`Change in PCI` ~ `PCI 2008`
+           + `Period Active` 
+           + `Did the PCI start below 60?` * `Did the PCI fall below 60?`
+           , data = county_data))
+# PCI falling below 60 does not seem to have triggered a sudden rush of pavement repair.
