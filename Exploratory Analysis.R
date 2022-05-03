@@ -26,4 +26,8 @@ summary(lm(`Change in PCI` ~ `PCI 2008` + `LOST Active between 08-20`, data = co
 summary(lm(`Change in PCI` ~ `PCI 2008` + `LOST Active between 08-20` + Population, data = county_data))
 
 
+
 summary(lm(`Change in PCI` ~ `PCI 2008` + `Period Active`, data = county_data))
+
+summary(lm(`Change in PCI` ~ `PCI 2008` + `Period Active` + `LOST Active between 08-20`, data = county_data))
+# I don't know why this works the way it does and I hate it
