@@ -2,7 +2,7 @@ library(data.table)
 library(ggplot2)
 library(tidyverse)
 
-county_data <- fread("Data/Pavements & LOSTs - Sheet1.csv")
+county_data <- fread("Data/Pavements & LOSTs - Sheet 1.csv")
 summary(county_data)
 
 summary(lm(`PCI 2020` ~ `PCI 2008`, data = county_data))
@@ -47,3 +47,20 @@ summary(lm(`Change in PCI` ~ `PCI 2008`
 # What the fuck is this
 # What the fuck does this mean
 # What the fuck
+
+
+summary(lm(`Change in PCI` ~ `PCI 2008`
+           #+ `Democrat %` 
+           + `Republican %`
+           #+ `Streets Metric` 
+           + `Local Return Metric`
+           #+ Population
+           #+ `Centerline Miles`
+           + `Area (sy)`
+           #+ CZP2
+           #+ CZP4
+           + `Pop per lane miles`
+           + `Did the PCI start below 60?`
+           #+ `Multiple LOSTS Active at same time?`
+           , data = county_data))$adj.r.squared
+
