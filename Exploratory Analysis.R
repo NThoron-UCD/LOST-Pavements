@@ -5,7 +5,7 @@ library(MASS)
 library(broom)
 library(mgcv)
 
-county_data <- fread("Data/Pavements & LOSTs - Crunching data.csv")
+county_data <- fread("Data/Pavements & LOSTs - Sheet 1.csv")
 summary(county_data)
 
 county_data <- county_data %>% mutate(
@@ -59,6 +59,7 @@ summary(lm(`Change in PCI` ~ `PCI 2008`
 # What the fuck does this mean
 # What the fuck
 
+
 summary(lm(`Change in PCI` ~ 
            #+ `Average Streets & Roads Percent`
            + `Streets Metric` * Population
@@ -108,3 +109,19 @@ summary(lm(PercChange ~ `Streets Metric`
    + `Centerline Miles`
    , data = county_data))
 #doesn't improve it imo
+
+summary(lm(`Change in PCI` ~ `PCI 2008`
+           #+ `Democrat %` 
+           + `Republican %`
+           #+ `Streets Metric` 
+           + `Local Return Metric`
+           #+ Population
+           #+ `Centerline Miles`
+           + `Area (sy)`
+           #+ CZP2
+           #+ CZP4
+           + `Pop per lane miles`
+           + `Did the PCI start below 60?`
+           #+ `Multiple LOSTS Active at same time?`
+           , data = county_data))$adj.r.squared
+
